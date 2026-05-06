@@ -19,43 +19,86 @@
         }
         .container {
             border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 4rem 2rem;
-            border-radius: 24px;
+            padding: 3.5rem 2rem;
+            border-radius: 28px;
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(15px);
-            max-width: 500px;
+            max-width: 450px;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
         }
+        /* Дизайнерська графіка (SVG) */
+        .icon-container {
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: center;
+        }
+        .bezier-svg {
+            width: 80px;
+            height: 80px;
+            stroke: #e94560;
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+        }
+        .path-anim {
+            stroke-dasharray: 200;
+            stroke-dashoffset: 200;
+            animation: draw 3s ease-in-out infinite alternate;
+        }
+        @keyframes draw {
+            to { stroke-dashoffset: 0; }
+        }
+        .handle {
+            fill: #e94560;
+            animation: blink 1.5s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
         h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
             letter-spacing: -0.5px;
+            font-weight: 600;
         }
         p {
-            font-size: 1.1rem;
+            font-size: 1rem;
             line-height: 1.6;
-            opacity: 0.7;
-            margin-bottom: 2rem;
+            opacity: 0.6;
+            margin-bottom: 2.5rem;
         }
         .timer-label {
             display: inline-block;
-            padding: 8px 16px;
-            background: rgba(233, 69, 96, 0.15);
-            border: 1px solid #e94560;
-            border-radius: 8px;
+            padding: 6px 14px;
+            background: rgba(233, 69, 96, 0.1);
+            border: 1px solid rgba(233, 69, 96, 0.4);
+            border-radius: 6px;
             color: #e94560;
-            font-size: 0.9rem;
-            font-weight: 600;
+            font-size: 0.8rem;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <div class="icon-container">
+            <svg class="bezier-svg" viewBox="0 0 100 100">
+                <path class="path-anim" d="M20,50 C20,20 80,80 80,50" />
+                <rect class="handle" x="17" y="47" width="6" height="6" />
+                <rect class="handle" x="77" y="47" width="6" height="6" />
+                <line x1="20" y1="50" x2="20" y2="30" stroke="white" stroke-width="0.5" stroke-dasharray="2" />
+                <circle cx="20" cy="30" r="2" fill="white" />
+            </svg>
+        </div>
         <div class="timer-label">Coming Soon</div>
         <h1>Portfolio in progress</h1>
-        <p>The website is currently under development and will be published in a few days. Stay tuned!</p>
+        <p>The website is currently under development and will be published in a few days. Stay tuned for the creative showcase!</p>
     </div>
 </body>
 </html>
